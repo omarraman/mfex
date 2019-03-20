@@ -32,8 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,11 +48,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Animal.cs" />
+    <Compile Include="Enums\FoodConsumptionType.cs" />
+    <Compile Include="Readers\FileReader.cs" />
+    <Compile Include="Entities\Rate.cs" />
+    <Compile Include="Enums\AnimalType.cs" />
+    <Compile Include="Interfaces\IXmlDocumentReader.cs" />
+    <Compile Include="Interfaces\IFileReader.cs" />
+    <Compile Include="Readers\XmlDocumentReader.cs" />
+    <Compile Include="ZooDailyFeedingCostCalculator.cs" />
+    <Compile Include="Enums\FoodType.cs" />
+    <Compile Include="Interfaces\IRateRepository.cs" />
+    <Compile Include="Interfaces\IPriceRepository.cs" />
+    <Compile Include="Interfaces\IZooRepository.cs" />
+    <Compile Include="Entities\Price.cs" />
+    <Compile Include="Repositories\PriceRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\RateRepository.cs" />
+    <Compile Include="Repositories\ZooRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Files\rates.csv" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Files\Prices.txt" />
+    <Content Include="Files\Zoo.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
